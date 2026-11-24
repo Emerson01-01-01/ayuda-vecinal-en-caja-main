@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792734249594,
+      "tag": "0000_restore_signup_trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792734521575,
+      "tag": "0001_fix_demo_data_random_pick",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794690000000,
+      "tag": "0002_vecibot_multimedia",
+      "breakpoints": true
+    }
+  ]
+}

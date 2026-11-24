@@ -1,0 +1,423 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AyúdateVeci — sistema de diseño.
+ * Azul oscuro, rojo y blanco. Poppins en títulos e Inter en la interfaz.
+ * Colores mediante tokens semánticos. Registrar cada token nuevo en @theme inline.
+ */
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-canvas: var(--canvas);
+  --color-canvas-foreground: var(--canvas-foreground);
+  --color-canvas-muted: var(--canvas-muted);
+  --color-outline: var(--outline);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-deep: var(--primary-deep);
+  --color-welcome-primary-start: var(--welcome-primary-start);
+  --color-welcome-primary-end: var(--welcome-primary-end);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-navy-soft: var(--navy-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-card: var(--elev-card);
+  --shadow-float: var(--elev-float);
+  --shadow-glow: var(--elev-glow);
+  --shadow-card-hover: var(--elev-card-hover);
+  --shadow-vecibot-glow: var(--elev-vecibot-glow);
+}
+
+:root {
+  color-scheme: light;
+  --radius: 1rem;
+
+  --background: #ffffff;
+  --canvas: #102d4e;
+  --canvas-foreground: #ffffff;
+  --canvas-muted: #dceaf7;
+  --outline: #000000;
+  --foreground: #123c68;
+  --card: #ffffff;
+  --card-foreground: #123c68;
+  --popover: #ffffff;
+  --popover-foreground: #123c68;
+
+  --primary: #e52435;
+  --primary-foreground: #ffffff;
+  --primary-soft: #fff0f2;
+  --primary-deep: #c91d2c;
+  --welcome-primary-start: #f24e61;
+  --welcome-primary-end: #d90429;
+
+  --navy: #123c68;
+  --navy-foreground: #ffffff;
+  --navy-soft: #edf3fa;
+
+  --secondary: #edf3fa;
+  --secondary-foreground: #123c68;
+  --muted: #f5f8fc;
+  --muted-foreground: #526980;
+  --accent: #e7eef7;
+  --accent-foreground: #123c68;
+
+  --destructive: #c91d2c;
+  --destructive-foreground: #ffffff;
+  --destructive-soft: #fff0f2;
+  --warning: oklch(0.75 0.15 70);
+  --warning-foreground: oklch(0.38 0.09 60);
+  --warning-soft: oklch(0.97 0.05 85);
+  --success: #176049;
+  --success-soft: #edf7f3;
+  --info: #205f9e;
+  --info-soft: #edf3fa;
+
+  --border: #dce4ed;
+  --input: #bdcddd;
+  --ring: #205f9e;
+
+  --chart-1: #205f9e;
+  --chart-2: #123c68;
+  --chart-3: #769ec5;
+  --chart-4: #b2c9e0;
+  --chart-5: #e52435;
+
+  --sidebar: #102d4e;
+  --sidebar-foreground: #dceaf7;
+  --sidebar-primary: #edf3fa;
+  --sidebar-primary-foreground: #123c68;
+  --sidebar-accent: #193c60;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #46607c;
+  --sidebar-ring: #dceaf7;
+
+  --elev-card: 0 2px 4px rgb(18 60 104 / 0.03), 0 6px 20px -10px rgb(18 60 104 / 0.1);
+  --elev-float: 0 16px 48px -20px rgb(18 60 104 / 0.2);
+  --elev-glow: 0 4px 12px -4px rgb(229 36 53 / 0.25);
+  --elev-card-hover: 0 16px 30px -12px rgb(0 0 0 / 0.36);
+  --elev-vecibot-glow: 0 12px 35px rgba(138, 43, 226, 0.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum" 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  :where(a, button, input, textarea, select, [role="button"]):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  :where(input, textarea, select)[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
+
+  :where(thead) {
+    background: var(--muted);
+    color: var(--navy);
+  }
+
+  :where(th) {
+    font-weight: 600;
+  }
+
+  :where(tbody tr) {
+    border-color: var(--border);
+  }
+}
+
+@utility bg-hero {
+  background: var(--background);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+@utility dot-grid {
+  background-image: radial-gradient(oklch(0.24 0.055 258 / 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@utility animate-float {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+/* Los fondos marinos y las superficies claras tienen colores de texto independientes. */
+.welcome-page {
+  --card: #f5f8fc;
+}
+
+.welcome-photo {
+  --card: #000000;
+  --card-foreground: #ffffff;
+  --muted-foreground: #dceaf7;
+  --navy-soft: #000000;
+  --border: #282828;
+  --info: #67dceb;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.welcome-photo .photo-frame {
+  padding: 0;
+  border-radius: 24px;
+  background: transparent;
+}
+
+.welcome-photo .photo-image {
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.welcome-page section:has(> .welcome-photo) {
+  position: relative;
+  padding-bottom: 0;
+  margin-bottom: 6rem;
+}
+
+.welcome-photo figcaption {
+  position: absolute;
+  top: calc(100% + 32px);
+  right: 0;
+  left: 0;
+}
+
+.welcome-page section:has(> .welcome-photo) > .surface-card {
+  position: absolute;
+  bottom: -20px;
+  left: -30px;
+  z-index: 10;
+  width: min(26rem, calc(100% - 12px));
+  margin: 0;
+  border-radius: 24px;
+  box-shadow: var(--elev-vecibot-glow);
+}
+
+.welcome-page ul[aria-label="Herramientas para tu negocio"] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 30px;
+}
+
+.conocer-page section.conocer-card {
+  --card: #d5e7f7;
+  --muted-foreground: var(--navy);
+}
+
+.welcome-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.welcome-description {
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.8;
+}
+
+.welcome-primary {
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--welcome-primary-start), var(--welcome-primary-end));
+  box-shadow: 0 3px 8px rgb(5 18 32 / 0.16);
+}
+
+.welcome-logo {
+  gap: 0.75rem;
+}
+
+.welcome-logo > span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  height: 56px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.surface-card,
+.surface-panel,
+.conocer-card,
+.conocer-back {
+  border: 1.5px solid var(--outline);
+}
+
+.surface-card,
+.conocer-card {
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.visual-button,
+.conocer-back {
+  transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease;
+}
+
+.photo-image {
+  transition: transform 250ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .welcome-page .welcome-primary.visual-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(5 18 32 / 0.22);
+  }
+
+  :is(.surface-card, .conocer-card):not(:has(input, textarea, select, [role="combobox"], [contenteditable="true"])):hover {
+    transform: translateY(-6px);
+    box-shadow: var(--elev-card-hover);
+  }
+
+  :is(.visual-button, .conocer-back):not(:disabled, [aria-disabled="true"]):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--elev-card-hover);
+  }
+
+  .photo-frame:hover .photo-image {
+    transform: scale(1.02);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .conocer-back:hover {
+    background-color: var(--info-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card,
+  .conocer-card,
+  .visual-button,
+  .conocer-back,
+  .photo-image {
+    transition: none;
+  }
+
+  .animate-float {
+    animation: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .welcome-page section:has(> .welcome-photo) > .surface-card {
+    left: 0;
+    width: 100%;
+  }
+
+  .welcome-logo {
+    gap: 0.5rem;
+  }
+
+  .welcome-logo > span {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brand-mark {
+    height: 80px;
+  }
+
+  .welcome-title {
+    font-size: clamp(2.6rem, 4.4vw, 3.5rem);
+  }
+}
